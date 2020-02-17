@@ -1,0 +1,220 @@
+<html>
+<head>
+        <title>DatosHeartBit!</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<style>
+        a.button1{
+                display:inline-block;
+                padding:0.35em 1.2em;
+                border:0.1em solid #FFFFFF;
+                margin:0 0.3em 0.3em 0;
+                border-radius:0.12em;
+                box-sizing: border-box;
+                text-decoration:none;
+                font-family:'Roboto',sans-serif;
+                font-weight:300;
+                color:#FFFFFF;
+                text-align:center;
+                transition: all 0.2s;
+        }
+        a.button1:hover{
+                color:#000000;
+                background-color:#FFFFFF;
+        }
+        @media all and (max-width:30em){
+        a.button1{
+                display:block;
+                margin:0.4em auto;
+        }
+        }
+        footer {
+         position: absolute;
+        bottom: 0;
+        width: 100px;
+        height: 400px;
+        text-align: center;
+        float: right;
+                }
+
+        header {
+	  position: absolute;
+	  bottom: 0;
+	  width: 100%;
+	  height: 800px;
+	  text-align: center;
+	  float: right;
+        }
+        
+        scroll-container {
+        display: block;
+        width: 350px;
+        height: 400px;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+         color: #000;       
+        
+        }
+
+        p {
+        position: absolute;
+        font-weight: bolder;
+        font-size: x-large;
+        width: 0px;
+        height: 600px;
+        align-content: center;
+        
+        }
+
+        .caja{
+         border-radius: 10px;
+         color-interpolation-filters: auto;
+        }
+
+</style>
+<script>
+$(document).ready(function(){
+
+    $('#consultar').click(function(){
+	$.ajax({
+                type: "GET",
+                url: "/consultar",
+                success: function(data) {
+                        $("#datos").html(data);
+                }
+        });
+    });
+    $('#buscar').click(function(){
+	var sesion=document.getElementById("sesion").value;  
+	$.ajax({
+                type: "GET",
+                url: "/buscar",
+		data:{
+		     "sesion":sesion
+                },
+	success: function(data) {
+                        $("#datos").html(data);
+                }
+        });
+    });
+
+    $('#promHR').click(function(){
+    var sesion=document.getElementById("sesion").value;  
+    $.ajax({
+                type: "GET",
+                url: "/promHR",
+        data:{
+             "sesion":sesion
+                },
+    success: function(data) {
+                        $("#datos").html(data);
+                }
+        });
+    }); 
+
+    $('#max').click(function(){
+    var sesion=document.getElementById("sesion").value;  
+    $.ajax({
+                type: "GET",
+                url: "/max",
+        data:{
+             "sesion":sesion
+                },
+    success: function(data) {
+                        $("#datos").html(data);
+                }
+        });
+    }); 
+
+    $('#min').click(function(){
+    var sesion=document.getElementById("sesion").value;  
+    $.ajax({
+                type: "GET",
+                url: "/min",
+        data:{
+             "sesion":sesion
+                },
+    success: function(data) {
+                        $("#datos").html(data);
+                }
+        });
+    });
+
+    $('#pRR50').click(function(){
+    var sesion=document.getElementById("sesion").value;  
+    $.ajax({
+                type: "GET",
+                url: "/pRR50",
+        data:{
+             "sesion":sesion
+                },
+    success: function(data) {
+                        $("#datos").html(data);
+                }
+        });
+    }); 
+
+    $('#SDRR').click(function(){
+    var sesion=document.getElementById("sesion").value;  
+    $.ajax({
+                type: "GET",
+                url: "/SDRR",
+        data:{
+             "sesion":sesion
+                },
+    success: function(data) {
+                        $("#datos").html(data);
+                }
+        });
+    });
+
+    $('#centHR').click(function(){
+    var sesion=document.getElementById("sesion").value;  
+    $.ajax({
+                type: "GET",
+                url: "/centHR",
+        data:{
+             "sesion":sesion
+                },
+    success: function(data) {
+                        $("#datos").html(data);
+                }
+        });
+    }); 
+
+    $('#centRR').click(function(){
+    var sesion=document.getElementById("sesion").value;  
+    $.ajax({
+                type: "GET",
+                url: "/centRR",
+        data:{
+             "sesion":sesion
+                },
+    success: function(data) {
+                        $("#datos").html(data);
+                }
+        });
+    });  
+});
+</script>
+</head>
+<body>
+        
+        <a id="consultar" class="button1">Listar Todo</a>
+        <a id="buscar" class="button1">Buscar</a>
+        <a id="promHR" class="button1">Promedio</a>
+        <a id="max" class="button1">Maximo</a>
+        <a id="min" class="button1">Minimo</a>
+        <a id="pRR50" class="button1">pRR50</a>
+        <a id="SDRR" class="button1">SDRR</a>
+        <a id="centHR" class="button1">Centroides HR</a>
+        <a id="centRR" class="button1">Centroides RR</a>
+        <p>   Sesion:<input type="text" class="caja" id="sesion"></p>  
+	<footer>
+                <scroll-container>
+                     <div id="datos"></div>   
+                </scroll-container>   
+        </footer>
+</body>
+</html>
