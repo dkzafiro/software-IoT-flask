@@ -6,3 +6,11 @@ Obtener para cada sesión: el promedio del HR y de RR, el valor máximo y mínim
 Determinar el riesgo asociado a las métricas de promedio de la variabilidad del ritmo cardíaco, SDRR y pRR50 (ver diapositiva siguiente).
 Presentar en tiempo real las gráficas del ritmo cardíaco (HR) y de la variabilidad del ritmo cardíaco (RR).
 Obtener los centroides de los datos del ritmo cardíaco y de la variabilidad del ritmo cardíaco. 
+
+Tecnologías a usar: 
+Microframework Flask de Python 
+Base de datos TinyDB
+Simulación de puerto serial y tarjeta Arduino(Python) 
+Librería scikit-learn de Python
+Librería de visualización de datos canvas.js
+
