@@ -14,3 +14,7 @@ Simulación de puerto serial y tarjeta Arduino(Python)
 Librería scikit-learn de Python
 Librería de visualización de datos canvas.js
 
+HOW TO OPEN PROJECT
+1-EXECUTE ARDUINO.PY
+2-EXECUTE EJEMPLO5
+
