@@ -25,6 +25,7 @@ def inicio():
 
 @app.route("/aleatorio")
 def aleatorio():
+	
 	port = "COM10"
 	ser = serial.Serial(port,9600)
 	RR = ser.readline().decode()
