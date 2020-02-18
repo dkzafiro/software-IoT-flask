@@ -25,7 +25,7 @@ def inicio():
 
 @app.route("/aleatorio")
 def aleatorio():
-	
+	#pyhton backend working
 	port = "COM10"
 	ser = serial.Serial(port,9600)
 	RR = ser.readline().decode()
