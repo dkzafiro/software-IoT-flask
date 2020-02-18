@@ -7,7 +7,7 @@ ser = serial.Serial(port,9600)
 ser.flushInput()
 ser.flushOutput()
 while True:
-
+    #new pyhton arduino! 
     HR=random.randint(1,200)
     RR=random.randint(500,1000)
     
