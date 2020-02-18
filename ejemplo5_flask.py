@@ -9,8 +9,7 @@ import serial
 
 app = Flask(__name__)
 man=manejador_db()
-port = "COM10"
-ser = serial.Serial(port,9600)
+
 
 @app.route("/")
 def home():
@@ -26,22 +25,30 @@ def inicio():
 
 @app.route("/aleatorio")
 def aleatorio():
-	HR=ser.read(ser.inWaiting()).split()
-	print "tipo de dato:",type(HR)
-	if HR >= "201":
-		HR=1
-	print HR
-	HR = HR[0]
+	port = "COM10"
+	ser = serial.Serial(port,9600)
+	RR = ser.readline().decode()
+	RR = RR.replace("\r\n","")
+	print(RR)
+
+	HR = ser.readline().decode()
+	HR = HR.replace("\r\n","")
+	print(HR)
+	#HR=ser.read(ser.inWaiting()).split()
+	#print "tipo de dato:",type(HR)
+	#if HR >= "201":
+	#	HR=1
+	#print HR
+	#HR = HR[0]
 	#HR=random.randint(1,200)
-	RR=random.randint(1,1000)
-	sesion=0
+	#RR=random.randint(1,1000)
+	sesion=1
 	estampa=time.time()*1000
 	#if ser.isOpen():
 	#	print "open:", ser.portstr
 	#	print "traigo algo:",HR
-	if (HR > "201"):
-		HR=87
-
+	
+	ser.close()
 	man.agregar_num(estampa, HR, RR, sesion)
 	
 	#print "Serial:",respuesta
